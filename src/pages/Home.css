@@ -1,0 +1,39 @@
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    font-weight: 900;
+    background: black;
+  }
+  
+  .content {
+    transition: opacity 1s ease, transform 1s ease; /* Smooth transition */
+  }
+  
+  .animated-background, .animated-background-secondary {
+    position: fixed; /* Fixed position to cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .animated-background {
+    z-index: -1;
+  }
+  
+  .animated-background-secondary {
+    z-index: -2;
+  }
+  
+  .glow {
+    z-index: -3;
+  }
+  
