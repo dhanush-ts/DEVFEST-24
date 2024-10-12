@@ -1,12 +1,7 @@
-.events {
-    padding: 40px 20px;
-    background-color: #2c2f33;
-  }
-  
-  .events p {
+.events p {
     margin: 20px 0;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;

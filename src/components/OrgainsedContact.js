@@ -9,7 +9,7 @@ import iic from "../assets/iic-logo.png"
 
 export const OrgainsedContact = () => {
     return (
-      <div className="bg-black text-white pt-10">
+      <div className="text-white pt-10">
         <h3 className="text-5xl font-bold text-center">Organized By</h3>
         <div className="md:flex justify-center">
           <img src={de} alt="Institution's Innovation Council" className="mx-auto max-w-xs" />

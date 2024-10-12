@@ -4,7 +4,6 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  height: 100vh;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   background: black;
@@ -26,7 +25,7 @@ body {
 .animated-background {
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 600%;
   background: linear-gradient(135deg, #ff007f, #00cfff, #ff8c00, #8a2be2, #ff007f);
   background-size: 400% 400%;
   animation: backgroundAnimation 20s ease infinite;
@@ -51,7 +50,7 @@ body {
 .animated-background-secondary {
   position: absolute;
   width: 100%;
-  height: 100%;
+  min-height: 600%;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(255, 0, 127, 0.1), rgba(255, 140, 0, 0.2), rgba(0, 207, 255, 0.15));
   background-size: 500% 500%;
   animation: secondaryAnimation 5s ease-in-out infinite;
@@ -59,6 +58,53 @@ body {
   z-index: 2;
   filter: blur(40px);
   opacity: 0.6;
+}
+
+/* Additional Layer 1: Rotating circle */
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.layer-rotate {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 0, 0.2);
+  border-radius: 50%;
+  animation: rotate 15s linear infinite;
+  z-index: 3;
+  filter: blur(15px);
+  opacity: 0.7;
+}
+
+/* Additional Layer 2: Vertical moving gradient */
+@keyframes verticalMove {
+  0% {
+    top: -200px;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+.layer-vertical {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 5px;
+  height: 600%;
+  background: linear-gradient(180deg, rgba(255, 140, 0, 0.5), rgba(0, 207, 255, 0.3));
+  animation: verticalMove 10s ease-in-out infinite;
+  z-index: 4;
+  filter: blur(10px);
+  opacity: 0.5;
 }
 
 /* Radial glow effect */
@@ -77,16 +123,46 @@ body {
   }
 }
 
-.glow {
+
+
+/* Additional Layer 3: Small glowing circles */
+@keyframes smallGlow {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+.small-glow {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0) 70%);
-  pointer-events: none;
-  animation: pulse 6s infinite ease-in-out;
-  mix-blend-mode: screen;
-  z-index: 3;
-  opacity: 0.8;
+  background: rgba(255, 99, 71, 0.6);
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 6;
+  animation: smallGlow 8s ease-in-out infinite;
+}
+
+/* Placing multiple small glowing circles */
+.small-glow-1 {
+  top: 20%;
+  left: 10%;
+}
+.small-glow-2 {
+  top: 50%;
+  left: 70%;
+}
+.small-glow-3 {
+  bottom: 30%;
+  right: 15%;
 }
 
 /* Text or content */
@@ -98,14 +174,35 @@ body {
   position: relative;
 }
 
+/* Custom cursor */
 .custom-cursor {
   position: fixed;
-  width: 20px; /* Size of the cursor */
-  height: 20px; /* Size of the cursor */
-  border-radius: 50%; /* Make it round */
-  background-color: #ff6347; /* Contrast color (tomato) */
-  pointer-events: none; /* Prevent it from interfering with mouse events */
-  transform: translate(-50%, -50%); /* Center the cursor */
-  transition: background-color 0.3s ease; /* Smooth transition for color changes */
-  z-index: 5; /* Above other elements */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ff6347;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: background-color 0.3s ease;
+  z-index: 11;
 }
+
+.ripple {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 99, 71, 0.4);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Background animations and effects remain unchanged */
