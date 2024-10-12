@@ -2,11 +2,14 @@ import React from 'react';
 
 export const Card = ({ title, backgroundImage }) => {
   return (
-    <div
-      className="bg-cover bg-center text-white flex items-center justify-center h-96 w-64 rounded-lg shadow-lg m-4"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
-    >
-      <h2 className="text-3xl font-bold text-center uppercase">{title}</h2>
+    <div className="text-white rounded-lg shadow-lg m-4 relative">
+      {/* Image */}
+      <img src={backgroundImage} className="rounded-xl max-w-md" alt="" />
+      
+      {/* Centered Text */}
+      <h2 className="text-5xl font-extrabold uppercase absolute inset-0 px-2 flex items-center justify-center">
+        {title}
+      </h2>
     </div>
   );
 };
